@@ -18,8 +18,15 @@
                         </div>
 
                         <div class="col-sm-12 mt-3">
-                            <asp:GridView ID="GrwEmployee" runat="server" CssClass="table table-bordered table-condensed table-responsive table-hover">
-                                
+                            <asp:GridView ID="GrwEmployee" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered table-condensed table-responsive table-hover">
+                                <Columns>
+                                    <asp:BoundField DataField="IdEmployee" HeaderText="Id" />
+                                    <asp:BoundField DataField="NameEmployee" HeaderText="Name" />
+                                    <asp:BoundField DataField="AgeEmployee" HeaderText="Age" />
+                                    <asp:BoundField DataField="SalaryEmployee" HeaderText="Salary" />
+                                    <asp:BoundField DataField="AnualSalary" HeaderText="Anual Salary" />
+                                    <asp:BoundField DataField="ImageEmployee" HeaderText="Image" />
+                                </Columns>
                             </asp:GridView>
                         </div>
                     </div>
