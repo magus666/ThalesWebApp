@@ -1,0 +1,83 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.master.vb" Inherits="ThalesWebApp.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <nav class="navbar navbar-inverse fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="Frm_Home.aspx">
+                    <asp:Image ID="ImagenLogo" runat="server" />
+                </a>
+                <button class="navbar-toggler MenuHamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse list-group" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Frm_Home.aspx"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+                        </li>
+
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdownClientes" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; Gestion de Clientes</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="Frm_GestorCliente.aspx">Agregar Clientes</a></li>
+                                <li><a class="dropdown-item" href="Frm_CargaMasivaClientes.aspx">Carga Masiva de Clientes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Frm_CargaDocumentos.aspx"><i class="fa fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Gestion de Documentos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa fa-search fa-fw" aria-hidden="true"></i>&nbsp; Consultas</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="Frm_ConsultaClientes.aspx">Consulta de Clientes</a></li>
+                                <li><a class="dropdown-item" href="Frm_ConsultaDocumentos.aspx">Consulta de Documentos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Frm_CargaDocumentos.aspx"><i class="fa fa-check-square-o fa-fw" aria-hidden="true"></i>&nbsp; Aprobaciones</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdownConfig" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa fa-gears fa-fw" aria-hidden="true"></i>&nbsp; Configuracion</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarScrollingDropdownConfig">
+                                <li><a class="dropdown-item " href="Frm_Roles.aspx">Roles y Perfiles</a></li>
+                                <li><a class="dropdown-item" href="Frm_Usuarios.aspx">Usuarios del Sistema</a></li>
+                                <li><a class="dropdown-item" href="Frm_Roles.aspx">Ciudades</a></li>
+                                <li><a class="dropdown-item" href="Frm_Roles.aspx">Sucursales</a></li>
+                                <li><a class="dropdown-item" href="Frm_GestionVehiculos.aspx">Vehiculos</a></li>
+                                <li><a class="dropdown-item" href="Frm_GestionContratos.aspx">Plantilla Contrato</a></li>
+                                <li><a class="dropdown-item" href="Frm_ParametrizacionDocumentos.aspx">Parametrizacion de Documentos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <asp:ScriptManager ID="ScriptGestor" runat="server" ScriptMode="Release">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/bootstrap.min.js" />
+                <asp:ScriptReference Path="Scripts/ScriptsGestorDocumental.js" />
+                <asp:ScriptReference Path="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
+            </Scripts>
+        </asp:ScriptManager>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
