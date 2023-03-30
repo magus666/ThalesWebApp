@@ -8,7 +8,7 @@
                 Await FillDataGridAllEmployees()
                 Await GetDropDownEmployee()
             Catch ex As Exception
-
+                MensajeError(ex.Message)
             End Try
         End If
     End Sub
@@ -61,7 +61,41 @@
                 Await FillDataGridEmployeeById()
             End If
         Catch ex As Exception
-
+            MensajeError(ex.Message)
         End Try
     End Sub
+
+    Protected Async Sub BtnBuscar_Click(sender As Object, e As EventArgs)
+        Try
+            If TxtSearch.Text = String.Empty Then
+                Await FillDataGridAllEmployees()
+                Exit Sub
+            Else
+                Dim GetAllEmployee = Await GetEmployeeClass.GetEmployeById(TxtSearch.Text)
+                GrwEmployee.DataSource = GetAllEmployee
+                GrwEmployee.DataBind()
+            End If
+        Catch ex As Exception
+            MensajeError(ex.Message)
+        End Try
+
+
+    End Sub
+
+    Protected Async Sub TxtSearch_TextChanged(sender As Object, e As EventArgs)
+        If TxtSearch.Text = String.Empty Then
+            Await FillDataGridAllEmployees()
+        End If
+    End Sub
+
+    Public Function MensajeError(Mensaje As String)
+        IdMensajeDanger.Visible = True
+        LblMensajePeligro.Text = Mensaje
+        Return Mensaje
+    End Function
+    Public Function MensajeAdvertencia(Mensaje As String)
+        IdMensajeWarning.Visible = True
+        LblMensajeAviso.Text = Mensaje
+        Return Mensaje
+    End Function
 End Class
