@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\Cl_Employee.vb" />
+    <Compile Include="Models\EmployeeDummyModel.vb" />
     <Compile Include="Models\EmployeeModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

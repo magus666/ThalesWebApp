@@ -5,6 +5,7 @@
     Protected Async Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             Try
+                Await GetEmployeeClass.GetEmployeeDummy()
                 Await FillDataGridAllEmployees()
                 Await GetDropDownEmployee()
             Catch ex As Exception

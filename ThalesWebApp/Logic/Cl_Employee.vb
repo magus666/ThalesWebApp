@@ -26,4 +26,17 @@ Public Class Cl_Employee
             Throw New Exception(ex.Message)
         End Try
     End Function
+
+    Public Async Function GetEmployeeDummy() As Task(Of Object)
+        Try
+            Dim UrlApi As String = "https://dummy.restapiexample.com/api/v1/employees"
+            Dim WebCliente As New WebClient()
+            Dim JsonDevuleto As String = Await WebCliente.DownloadStringTaskAsync(New Uri(UrlApi))
+            Dim ObjetoDevuelto = JsonConvert.DeserializeObject(Of EmployeeDummyModel.Root)(JsonDevuleto)
+            Dim ListaDevuelta = ObjetoDevuelto.data
+            Return ListaDevuelta
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
 End Class
